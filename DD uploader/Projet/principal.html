@@ -1,0 +1,118 @@
+<html>
+<meta charset="utf-8">
+<title>DD Dropbox</title>
+<link rel='stylesheet' type='text/css' href='style.css'/>
+<link rel="stylesheet" type="text/css" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.12/themes/smoothness/jquery-ui.css" />
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>
+
+<head>
+<script>
+var y="";
+$(function(){
+	produit();
+	$('#barre').progressbar({
+    value : 0
+	});
+});
+function menu(x){
+	$('.menu').css("display","none");
+	$('#'+x).css("display","block");
+}
+function vider(y){
+	if(confirm("Etes vous sûr? Cette action est IRREVERSIBLE!")){
+		$.ajax({
+			type: "POST",
+			url: "vider.php",
+			data: 'table='+y,
+			success:function (result){
+				alert(result);
+			}
+		});
+	}
+}
+function produit(){
+	$.ajax({
+		type: "POST",
+		url: "produit.php",
+		success:function (result){
+			$("#res4").html(result);
+		}
+	});
+}
+function ajout(form){
+	$('#loader').css("display","block");
+	var xhr = new XMLHttpRequest();
+	xhr.open('POST', form.action);
+	xhr.responseType = "json";
+	xhr.onload = function() {
+		try {
+			if(this.response.error) {
+				alert(this.response.error);
+				$('#loader').css("display","none");
+			} else {
+				alert(this.response.success);
+				document.location.reload();
+			} 
+		} catch(e) {
+			alert("Erreur serveur");	
+		}
+		
+		$('#barre').progressbar('option', 'value', 0);
+	};
+	xhr.upload.onprogress = function(e) {
+		console.log(e.loaded, e.total, (e.loaded / e.total)*100);
+		$('#barre').progressbar('option', 'value', (e.loaded / e.total)*100);
+    };
+	xhr.send(new FormData(form));
+}
+</script>
+</head>
+<body>
+
+<h1 id="titre">P2P DD</h1></br>
+<table id="matable">
+<ul id="achat_menu"><li><span class="list" onclick="menu('achat')">Recherche de fichiers</span></li></ul>
+<ul id="ajout_menu"><li><span class="list" onclick="menu('ajout')">Ajouter un fichier</span></li></ul>
+<!-- <ul><li><span class="list" onclick="menu('vider')">Vider les tables de données</span></li></ul> --!>
+</table>
+
+<span id="accueil" class="menu">
+<h1>Bienvenue!</h1>
+<div>Dans ce site, vous pourrez télécharger et partager </br>les différents fichiers présent sur le site!</div>
+</span>
+
+<span id="achat" class="menu">
+<h1>Recherche de fichier</h1>
+<div>Vous pouvez télécharger les fichiers ici:</div></br>
+<div id="remarque">*Si vous télécharger un film ou une image, il se peut que </br>vous aiez à le télécharger à l'ouverture du fichier.</div></br>
+<div id="res4"></div>
+</span>
+
+<span id="ajout" class="menu">
+<h1>Ajouter un fichier</h1>
+<div>Veuillez utilisez un nom de fichier<b> significatif</b> sous lequelle </br>le fichier sera enrégistré afin de faciliter les recherches!</div></br>
+<form action="ajout.php" onSubmit="ajout(this);return false">
+<label for="nom_fichier" class="nom_fichier">Nom du fichier: </label><input type="text" name="nom_fichier" id="nom_fichier">        
+<input type="file" name="monfichier" id="monfichier"></br></br>    
+<input type="submit" value="Envoyer" name="env"></br>
+</form>
+</br>
+<div id="barre"></div>
+</br>
+<img id="loader" src="486.GIF">
+</br>
+<div id="res5" style="color:blue"></div>
+</span>
+
+<span id="vider" class="menu">
+<h1>Vider les tables</h1>
+<div>Vous pouvez vider ici les tables Utilisateur et Acheter:</div></br>
+<button class="bouton" onclick="vider('Utilisateur')">Vider la table Utilisateur</button>
+<button class="bouton" onclick="vider('Acheter')">Vider la table Acheter</button>
+<button class="bouton" onclick="vider('Deux')">Vider les 2 tables</button></br></br>
+</span>
+
+<!--<table id="menus_bas"><tr><td onclick="menu('accueil')">Accueil</td><td onclick="menu('afficher')">Profil</td><td onclick="menu('inscrire')">Inscription</td><td onclick="menu('supprimer')">Désinscription</td><td onclick="menu('connexion')">Connexion</td><td onclick="menu('vider')">Vider les tables</td></tr></table>*/
+</body>
+</html>

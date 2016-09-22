@@ -1,0 +1,117 @@
+span.menu{
+	position:absolute;
+	top:110px;
+	left: 30%;
+	border:6px solid black;
+	border-radius:10px;
+	padding:50px;
+	}
+h1{
+	text-align:center;
+	}
+#titre{
+	text-decoration:underline;
+	font-style:italic;
+	color:#E65603;
+	}
+span.list{
+	position:absolute;
+	color:white;
+	background-color:#4E4951;
+	border:3px solid black;
+	border-radius:5px;
+	padding:2px;
+	width:250px;
+	text-align:center;
+	}
+#table_afficher{
+	border:2px solid black;
+	border-collapse:collapse;
+	}
+#table_afficher tr{
+	border:2px solid black;
+	padding:5px;
+	}
+#table_afficher td{
+	border:2px solid black;
+	padding:5px;
+	}
+span.list:hover{
+	background-color:red;
+	border:3px solid black;
+	border-radius:5px;
+	}
+#accueil{
+	display:block;
+	width:400px;
+	}
+#accueil h1{
+	color:red;
+	text-decoration:underline;
+	}
+#accueil div{
+	color:blue;
+	font-size:24px;
+	}
+#afficher{
+	display:none;
+	}
+#ajouter{
+	display:none;
+	}
+#supprimer{
+	display:none;
+	}
+#achat{
+	display:none;
+	}
+#connexion{
+	display:none;
+	}
+#ajout{
+	display:none;
+	}
+#vider{
+	display:none;
+	}
+#ajout_menu{
+
+	}
+#achat_menu{
+
+	}
+#menus_bas{
+    min-height: 100%;
+    height: auto
+    height: 100%;
+    margin: 0 auto -4em;
+	}
+#menus_bas td{
+	color:black;
+	border:2px solid black;
+	padding:3px;
+	background-color:#C1C1C1;
+	}
+#menus_bas td:hover{
+	color:red;
+	font-size:20px;
+	}
+#remarque{
+	color:blue;
+	font-size:15;
+	}
+button.bouton{
+	background-color:orange;
+	color:red;
+	width:170px;
+	}
+#loader{
+	display:none;
+	width:70;
+	height:50;
+	margin:auto;
+	}
+body{
+	background-image:linear-gradient(to right,white,grey);
+	font-family: Verdana;
+	}

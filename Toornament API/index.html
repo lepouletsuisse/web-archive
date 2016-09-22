@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script src="library/globalLibrary/jQuery/jquery-2.2.2.min.js"></script>
+    <meta charset="UTF-8">
+    <title>Festigeek Final</title>
+    <script>
+        function createPoule() {
+            $(".buttons").hide();
+            $("#output").empty().append("Loading...");
+            $.ajax({
+                type: "POST",
+                url: "createPoule.php",
+                success: function (result) {
+                    $("#output").empty().append(result);
+                }
+            });
+        }
+        function createFinal() {
+            $(".buttons").hide();
+            $("#output").empty().append("Loading...");
+            $.ajax({
+                type: "POST",
+                url: "createFinal.php",
+                success: function (result) {
+                    $("#output").empty().append(result);
+                }
+            });
+        }
+        function addTournamentCode() {
+            $("#buttonNext").hide();
+            $("#output").empty().append("Loading...");
+            $.ajax({
+                type: "POST",
+                url: "addTournamentCode.php",
+                success: function (result) {
+                    $("#output").empty().append(result);
+                }
+            });
+        }
+        function bypass() {
+            $(".buttons").hide();
+            $("#output").empty().append("Loading...");
+            $.ajax({
+                type: "POST",
+                url: "addTournamentCode.php",
+                success: function (result) {
+                    $("#output").empty().append(result);
+                }
+            });
+        }
+    </script>
+</head>
+<body>
+<h1>Script final de création des arbres Toornament en utilisant les Tournament Code</h1>
+<h1>Arbre de tournois LoL</h1>
+<button onclick="createPoule()" class="buttons">Create the Poule</button>
+<button onclick="createFinal()" class="buttons">Create the Final</button>
+<button onclick="bypass()" class="buttons" style="display: block">bypass for test</button>
+<div id="output">OUTPUT</div>
+
+<iframe width="853" height="480" src="https://widget.toornament.com/tournaments/572cefe8fc7b7eb60f8b456b/participants?_locale=en_GB&theme=discipline" frameborder="0" scrolling="no" allowfullscreen="true"></iframe>
+
+</body>
+</html>

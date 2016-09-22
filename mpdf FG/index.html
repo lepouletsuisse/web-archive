@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script src="jquery-2.2.2.min.js"></script>
+    <meta charset="UTF-8">
+    <title>Toornament</title>
+</head>
+<body>
+<h1>Ceci est une page de test pour la création de PDF et envoie de mail</h1>
+<script>
+    $.ajax({
+        type: "POST",
+        url: "pdfMail.php",
+        success: function (result) {
+            $("#output").empty().append(result);
+        }
+    });</script>
+<div id="output">OUTPUT</div>
+</body>
+</html>

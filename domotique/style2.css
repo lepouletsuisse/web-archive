@@ -1,0 +1,285 @@
+/* ====== RESET CSS =======*/
+/*
+   http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+/*===== MAISON CSS =====*/
+
+/* Typographie */
+
+body{
+	font-size: 20px;
+	font-family: 'Roboto Condensed', sans-serif;
+	background-color: seagreen;
+}
+
+h1, h2, h3, h4, h5, h6{
+	font-family: 'Teko', sans-serif;
+}
+
+h1{
+	font-weight: bold;
+	font-size: 6rem;
+	padding: 140px 0 0;
+}
+
+h2{
+	font-size: 3rem;
+}
+
+h2:after{
+	content: ":";
+	padding-left: .1em;
+}
+
+h3{
+	font-size: 2rem;
+}
+
+b{
+	font-weight: bold;
+}
+
+em{
+	font-style: italic;
+}
+
+select, button, input{
+	border:none;
+	padding:5px 7px;
+	border-radius:5px;
+	margin: 5px 5px 0 0;
+	color:inherit;
+	font-family: inherit;
+	font-size: inherit;
+}
+
+button{
+	background-color: slategray;
+	color:white;
+}
+
+#mur button{
+	background-color: #917d66;
+	color:white;
+}
+
+#mur ul{
+	margin:5px 0 25px;
+}
+
+#mur li{
+	padding: 10px 0;
+}
+
+#mur ul li:last-of-type{
+	padding: 10px 0 0;
+}
+
+#mur ul ul{
+	border-left: solid 1px #917d66;
+	margin-left: 10px;
+}
+
+#mur li li{
+	margin:0 0 0 10px;
+}
+
+.GREEN{
+    color: seagreen;
+}
+
+.RED{
+    color: crimson;
+}
+
+.ORANGE{
+    color: chocolate;
+}
+
+.GREY{
+    color: slategray;
+}
+
+
+/* Structure */
+
+#ciel{
+	background-color: cornflowerblue;
+	padding: 3% 0 0;
+	background-image: url("Images/nuages.svg");
+	background-repeat: repeat;
+	background-position: center;
+	background-size: 694px;
+}
+
+#toit{
+	background-image:url("Images/toit.svg");
+	color: lightyellow;
+	background-size: 100%;
+	background-repeat: no-repeat;
+	background-position: center bottom;
+	width: 83%;
+	max-width: 1300px;
+	height:300px;
+	margin:0 auto;
+	text-align: center;
+	text-shadow: 0px 0px 15px rgba(255, 255, 255, .8);
+	border-radius: 200px 200px 0 0;
+	border-bottom: solid 30px #7c3535;
+}
+
+#crepi{
+	background-color: lemonchiffon;
+	width:65%;
+	margin: 0 auto;
+	padding: 3% 3% 0;
+	max-width: 1000px;
+	border-top:15px solid burlywood;
+}
+
+.fenetre{
+	background-color: lightsteelblue;
+	background-image: url("Images/reflet.svg");
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: center;
+	color: slategrey;
+	display: inline-block;
+	vertical-align: top;
+	padding: 3%;
+	min-height: 200px;
+	border:inset 15px burlywood;
+	box-sizing: border-box;
+}
+
+.fenetre.un{
+	width:32%;
+}
+
+.fenetre.deux{
+	width:65%;
+	margin-left: 3%;
+}
+
+.fenetre li{
+	padding-top: 6%;
+}
+.afedit{
+	display: inline-block;
+	vertical-align: top;
+	padding-top:3%;
+}
+
+.afedit.un{
+	width:25%;
+}
+
+.afedit.deux{
+	width:55%;
+	margin-left: 20%;
+}
+
+#mur{
+	color: #917d66;
+	background-image: url("Images/porte.svg");
+	background-repeat: no-repeat;
+	background-position: right bottom;
+	background-size: 264px;
+	min-height: 393px;
+	padding:5% 45% 5% 0;
+}
+
+#gazon{
+	color: lightgreen;
+	text-align: right;
+	padding:140px 3% 10%;
+	background-image: url("Images/gazon.svg");
+	background-repeat: repeat-x;
+	background-position: center top;
+	margin-top: -105px;
+	background-size: 68px;
+}
+
+@media all and (max-width: 970px){
+
+	#mur{
+		background-image: none;
+		min-height:100px;
+		padding:5% 0;
+	}
+
+	.fenetre{
+		display:block;
+		width:100% !important;
+		margin: 5% 0 0 !important;
+	}
+
+	.fenetre li, .afedit{
+		padding: 3% 0;
+	}
+}
+
+@media all and (max-width: 625px){
+	.afedit{
+		display:block;
+		width:100% !important;
+		margin: 6% 0 !important;
+	}
+}
+
+@media all and (max-width: 390px){
+	h1{
+		font-size: 5rem;
+	}
+
+	h2{
+		font-size: 3rem;
+	}
+}
